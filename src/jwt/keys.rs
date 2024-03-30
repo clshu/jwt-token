@@ -19,6 +19,7 @@ impl Keys {
 }
 
 pub static KEYS: Lazy<Keys> = Lazy::new(|| {
+    // main() needs to call dotenv().ok() first
     let secret = dotenv!("APP_SECRET");
     Keys::new(secret.as_bytes())
 });
